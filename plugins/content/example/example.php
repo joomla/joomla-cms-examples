@@ -133,6 +133,12 @@ class plgContentExample extends JPlugin
 	public function onContentBeforeSave($context, &$article, $isNew)
 	{
 		$app = JFactory::getApplication();
+        
+        // gets the article attributes
+        $attribs = json_decode($article->attribs);
+        
+        //Set the new $attribs object for the article
+        $article->attribs = json_encode($attribs);
 
 		return true;
 	}
